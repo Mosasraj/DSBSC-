@@ -1,20 +1,20 @@
 # DSBSC
 
 
-EX NO: 2	DSB-SC-AM MODULATOR AND DEMODULATOR
+## EX NO: 2	DSB-SC-AM MODULATOR AND DEMODULATOR
 
-AIM:
+## AIM:
 
 To write a program to perform DSBSC modulation and demodulation using SCI LAB and study its spectral characteristics
 
-EQUIPMENTS REQUIRED
+## EQUIPMENTS REQUIRED
 
 •	Computer with i3 Processor
 •	SCI LAB
 
 Note: Keep all the switch faults in off position
 
-Algorithm:
+## Algorithm:
 
 1.	Define Parameters:
 •	Fs: Sampling frequency.
@@ -32,7 +32,7 @@ Algorithm:
 •	Low-pass Filtering: Apply a Butterworth low-pass filter to remove the high- frequency components and recover the original message signal.
 5.	Visualization:
 Plot the message signal, carrier signal, DSBSC modulated signal, and the recovered signal after demodulation.
-PROCEDURE
+## PROCEDURE
 
 •	Refer Algorithms and write code for the experiment.
 •	Open SCILAB in System
@@ -43,41 +43,43 @@ PROCEDURE
 •	If any Error, correct it in code and execute again
 •	Verify the generated waveform using Tabulation and Model Waveform
 
-Model Waveform
+## Model Waveform
 
 <img width="703" height="679" alt="image" src="https://github.com/user-attachments/assets/e7c7c7f8-ccf2-41ac-b1f3-325989941a6f" />
 
-Program
+## Program
 ```
-am=6.3;
-fm=407;
-ac=12.6;
-fc=4070;
-fs=40700;
-t=0:1/fs:3/fm;
-em=am*cos(2*3.14*fm*t);
+Am=12.25;
+fm=1869;
+fc=18690;  
+Ac=20.175;
+fs=186900;
+t=0:(1/fs):(2/fm);
+em=Am*cos(2*3.14*fm*t);
 subplot(3,1,1);
 plot(t,em);
-ec=ac*cos(2*3.14*fc*t);
+ec=Ac*cos(2*3.14*fc*t)
 subplot(3,1,2);
 plot(t,ec);
-eam1=ac*(1+(em/ac)).*cos(2*3.14*fc*t);
-eam2=ac*(1-(em/ac)).*cos(2*3.14*fc*t);
-edsbsc=eam1-eam2;
-subplot(3,1,3);
-plot(t,edsbsc);
+eAm1=(Ac+em).*cos(2*3.14*fc*t);
+eAm2=(Ac-em).*cos(2*3.14*fc*t);
+eDSBSC=eAm1-eAm2;
+subplot(3,1,3)
+plot(t,eDSBSC);
 ```
 
 
-Output Graph
+## Output Graph
 
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/b56dd6d4-5954-4e5b-95d0-1045180aefa2" />
-
-Tablular Column
-<img width="900" height="1600" alt="image" src="https://github.com/user-attachments/assets/6af3b2dc-452a-40f1-8635-c871ff77fcb2" />
+<img width="1755" height="1072" alt="image" src="https://github.com/user-attachments/assets/e5984c8e-ae83-46bb-8910-522f0b158120" />
 
 
-Result
+## Tablular Column
+
+<img width="1544" height="937" alt="WhatsApp Image 2026-05-27 at 8 50 20 AM" src="https://github.com/user-attachments/assets/f45c503f-5cae-4e3c-b515-97a4e1f71d9a" />
+
+
+## Result
 
 Thus the DSB-SC-AM Modulation and Demodulation is generated.
 
